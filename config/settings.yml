@@ -2,23 +2,39 @@ plugins:
   ldap_enabled:
     default: true
   ldap_user_create_mode:
-    default: 'auto'
+    type: enum
+    default: "auto"
+    choices:
+      - auto
+      - list
+      - none
   ldap_lookup_users_by:
-    default: 'email'
+    type: enum
+    default: "email"
+    choices:
+      - email
+      - username
   ldap_hostname:
-    default: 'adfs.example.com'
+    default: "adfs.example.com"
   ldap_port:
     default: 389
+    min: 0
+    max: 65535
   ldap_method:
-    default: 'plain'
+    type: enum
+    default: "plain"
+    choices:
+      - ssl
+      - tls
+      - plain
   ldap_base:
-    default: 'dc=example,dc=com'
+    default: "dc=example,dc=com"
   ldap_uid:
-    default: 'sAMAccountName'
+    default: "sAMAccountName"
   ldap_bind_dn:
-    default: ''
+    default: ""
   ldap_password:
-    default: ''
+    default: ""
     secret: true
   ldap_filter:
-    default: ''
+    default: ""
